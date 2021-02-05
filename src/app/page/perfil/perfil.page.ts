@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
@@ -7,22 +8,11 @@ import { MenuController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
-  ngOnInit(): void {}
+  constructor(private navCtrl: NavController) { }
 
-  constructor(private menu: MenuController) { }
-
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  ngOnInit() {
   }
-
-  openEnd() {
-    this.menu.open('end');
+  onClick(){
+    this.navCtrl.navigateForward('perfil/dados');
   }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
-
 }
